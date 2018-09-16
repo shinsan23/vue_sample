@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Vue App</title>
+        <link rel=styleseet" href="css/styles.css">
+    </head>
+    <body>
+        <!--2-1.Vue.jsで扱うUIの領域を定義-->
+        <div id="app">
+            <!-- 2-3.Data->UIに反映-->
+            <p>Hello {{name}}</p>
+            <!--2.4.jsを直接書く事もできる-->
+            <p>{{name.toUpperCase()}}</p>
+            <!-- 2-4.UI->Data反映-->
+            <p><input type="text" v-model="name"></p>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Vue App</title>
+        <link rel=styleseet" href="css/styles.css">
+    </head>
+    <body>
+        <div id="app">
+            <!-- 3.5タイトル追加-->
+            <h1> My Todos</h1>
+            <!-- 3-2データをUIに表示-->
+            <ul>
+                <!--単純にリストにするなら
+                <li>{{todos[0]}}</li>
+                <li>{{todos[1]}}</li>
+                <li>{{todos[2]}}</li>
+                -->
+                <!-- 3-3.配列のループ表示-->
+                <!-- todosのデータを表示-->
+                <li v-for="todo in todos">
+                    {{todo}}
+                </li>
+                <!-- 「v-」のことを「ディレクティブ」と呼ぶ-->
+            </ul>
+            <!-- 3.4.todoを追加できるようにする-->
+            <form>
+                <input type="text">
+                <input type="submit" value="Add">
+            </form>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

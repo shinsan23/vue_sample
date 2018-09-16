@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Test Vue App</title>
+        <link rel="stylesheet" href="css/styles.css" />        
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1> Todosリスト</h1>
+            <!-- 9-4.変えるのはここ
+            <ul>
+            -->
+            <ul v-if="todos.length">
+                <!--9-3.別の書き方v-if
+                v-ifはv-forより先に実行されるから上手くいかない
+                <li v-for="(todo,index) in todos">
+                --->
+                <!-- 9-4.変えるのはここ v-ifとv-forを別ける
+                <li v-if="todos.length" v-for="(todo,index) in todos"></li>
+                -->
+                <li v-for="(todo,index) in todos">
+                    <input type="checkbox" v-model="todo.isDone">
+                    <span :class="{done: todo.isDone}">{{todo.title}}</span>
+                    <span @click="deleteItem(index)" class="command">[x]</span>
+                </li>
+            </ul>    
+                <!--9-1.listが空の場合、メッセージ表示
+                    todos.lengthがfalseの時-->
+                <!-- 9-3. 別の書き方v-else
+                <li v-show="!todos.length">項目が存在しません</li>
+　　　　　　　　　-->
+<!-- 9-4. 変えるのここから
+                <li v-else>項目が存在しません</li>
+-->
+            <ul v-else>
+                <li>項目が存在しません</li>
+            </ul>
+<!-- 9-4. 変えるのここまで -->
+            <form @submit.prevent="addItem">    
+                <input type="text" v-model="newItem">
+                <input type="submit" value="Add">
+            </form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
